@@ -1,7 +1,7 @@
 /**
  * Created by ranga_000 on 12/22/13.
  */
-public class Arrays {
+public class ArrayLearning {
     public static void main(String[] args) {
         int[][] arr = new int[3][5];
         int[] arr1 = {1, 2, 3, 4, 5};

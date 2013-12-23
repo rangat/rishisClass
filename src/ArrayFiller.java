@@ -5,7 +5,7 @@
  * @version (a version number or a date)
  */
 import java.util.*;
-import java.io.*;
+
 public class ArrayFiller {
     public static void main(String [] args){
         Scanner reader = new Scanner (System.in);
@@ -30,12 +30,26 @@ public class ArrayFiller {
                 default:
                     break;
             }
-            System.out.println(arr);
+            prettyPrint(arr);
         }
+
     }
 
     public static int[][] twoByTwo() {
         int[][] arr = new int[2][2];
+        ArrayList<Integer> fill = new ArrayList<Integer>();
+        fill.add(1);
+        fill.add(1);
+        fill.add(2);
+        fill.add(2);
+        Random gen = new Random();
+        for(int i = 0; i < arr.length; i++){
+            for(int j = 0; j < arr[i].length; j++){
+                int fillIndex = gen.nextInt(fill.size());
+                arr[i][j] = fill.get(fillIndex);
+                fill.remove(fillIndex);
+            }
+        }
         return arr;
     }
 
@@ -55,5 +69,12 @@ public class ArrayFiller {
         return arr;
     }
 
-
+    public static void prettyPrint(int[][] arr) {
+        for(int i = 0; i < arr.length;i++){
+            for(int j = 0; j < arr[i].length; j++){
+                System.out.print(arr[i][j] + " ");
+            }
+            System.out.print("\n");
+        }
+    }
 }
